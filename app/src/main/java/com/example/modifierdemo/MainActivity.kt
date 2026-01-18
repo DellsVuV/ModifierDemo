@@ -53,9 +53,13 @@ fun CustomImage(image: Int, modifier: Modifier = Modifier) {
 
 @Composable
 fun DemoScreen(modifier: Modifier = Modifier) {
-    val mymodifier = modifier
+    // ▼▼▼ ПЕРВЫЙ МОДИФИКАТОР (из предыдущих заданий) ▼▼▼
+    val mymodifier = Modifier
         .border(width = 2.dp, color = Color.Black)
         .padding(all = 10.dp)
+
+    // ▼▼▼ ВТОРОЙ МОДИФИКАТОР (новый, добавляем высоту) ▼▼▼
+    val secondModifier = Modifier.height(100.dp)
 
     Column(
         Modifier.padding(20.dp),
@@ -64,7 +68,8 @@ fun DemoScreen(modifier: Modifier = Modifier) {
     ) {
         Text(
             "Hello Compose",
-            mymodifier,
+            // ▼▼▼ КОМБИНИРУЕМ МОДИФИКАТОРЫ С ПОМОЩЬЮ .then() ▼▼▼
+            mymodifier.then(secondModifier),
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold
         )
